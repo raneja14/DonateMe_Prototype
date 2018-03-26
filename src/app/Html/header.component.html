@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-white">DoNaTe Me !!</a>
+    <div class="navbar-nav mr-auto"></div>
+    <div>
+        <div class="btn-group drop" *ngIf="authDonor; else guestTemplate" appDropdown (click)="caretClicked()">
+            <button type="button" class="btn btn-danger">{{ authDonor.donorName }}</button>
+            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu" [class.show]="showDropdown">
+                <a class="dropdown-item" routerLink="home/profile">Profile</a>
+                <a class="dropdown-item" routerLink="home/request">Requests</a>
+                <a class="dropdown-item" routerLink="home/search">Home</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" (click)="caretClicked()" routerLink="logout">Log Out</a>
+            </div>
+        </div>
+
+        <ng-template #guestTemplate>
+            <span class="text-white mx-4 navbar-brand"> Hi !!</span>
+        </ng-template>
+    </div>
+</nav>

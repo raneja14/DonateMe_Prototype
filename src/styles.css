@@ -1,0 +1,44 @@
+.bg-black {
+background-color: black;
+}
+
+.bg-amber {
+    background-color: #FFAC02;
+}
+
+.bg-tomato {
+    background-color: #FF8B76;
+}
+
+.bg-slate-gray{
+    background-color: #353F40;
+}
+
+.bg-green{
+    background-color:  #64c56b;
+}
+
+.bg-blue{
+    background-color:  #007ACC ;
+    color:white;
+}
+
+.bg-light-gray{
+    background-color: #637779;
+}
+
+.bg-dark-gray{
+    background-color: #222222;
+}
+
+.bg-cement-gray{
+    background-color: #AFAFAF;
+}
+
+.bg-smoke-white{
+    background-color: #F5F5F5;
+}
+
+.cursor-hand {
+    cursor: pointer;
+}

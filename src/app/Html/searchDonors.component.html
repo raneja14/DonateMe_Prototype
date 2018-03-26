@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-12">
+        <app-criteria></app-criteria>
+    </div>
+</div>
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-md-10">
+            <app-donor-list></app-donor-list>
+        </div>
+        <div class="col-md-2">
+            <app-donor-card *ngIf="requestedDonor; else infoText" [requestedDonor]="requestedDonor"></app-donor-card>
+            <ng-template #infoText>
+                <p>No donor Requested</p>
+            </ng-template>
+        </div>
+    </div>
+
+</div>

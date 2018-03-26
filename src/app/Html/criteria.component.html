@@ -1,0 +1,33 @@
+<hr>
+<div class="mt-0 card bg-slate-gray text-white">
+    <div class="card-body">
+
+        <form [formGroup]="criteriaForm" (ngSubmit)="onCriteriaSubmit()">
+
+            <div class="row form-group">
+                <div class="col-sm-3 col-md-3">
+                    <select class="form-control" id="id_bloodGroup" formControlName="f_bloodGroup">
+                        <option *ngFor=" let bloodGroup of bloodGroups " [value]="bloodGroup">{{ bloodGroup }}</option>
+                    </select>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <select class="form-control" id="id_state" formControlName="f_state" (change)="onStateSelected($event.target.value)" >
+                        <option value=-1>--Select State--</option>
+                        <option *ngFor="let state of states" [value]=state.stateId>{{state.stateName}} </option>
+                    </select>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <select class="form-control" id="id_city" formControlName="f_city">
+                        <option value=-1>--Select City--</option>
+                        <option *ngFor="let city of cities" [value]=city.cityId>{{city.cityName}} </option>
+                    </select>
+                </div>
+                <div class="col-sm-2 col-md-2">
+                    <button type="submit" class="col-md-12 btn bg-blue">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="mt-4 card text-white bg-slate-gray">
+        <div class="card-header text-center bg-dark-gray">
+            <div class="row">
+                <div class="col-md-11">
+                    <h3>My Profile !!</h3>
+                </div>
+                <div class="col-md-1">
+                    <span (click)="onEditClick()" *ngIf="!allowUpdate">
+                       <h3><i class="fa fa-pencil-square-o cursor-hand"></i></h3> 
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <form [formGroup]="updateForm" (ngSubmit)="onUpdateSubmit()">
+                <div class="form-group">
+                    <label for="id_bloodGroup">Blood Group:</label>
+                    <select class="form-control" id="id_bloodGroup" formControlName="f_bloodGroup">
+                        <option *ngFor="let bloodGroup of bloodGroups" [value]="bloodGroup">{{bloodGroup}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="id_name">Name:</label>
+                    <input type="text" class="form-control" id="id_name" formControlName="f_name" placeholder="first name">
+                </div>
+                <div class="form-group">
+                    <label for="id_mobile">Mobile No:</label>
+                    <input type="text" class="form-control" id="id_mobile" formControlName="f_mobile" placeholder="10-digit number">
+                </div>
+                <div class="form-group">
+                    <label for="id_email">Email Id:</label>
+                    <input type="email" class="form-control" id="id_email" formControlName="f_email" placeholder="abc@xyz.com">
+                </div>
+                <div class="form-group">
+                    <label for="id_state">State:</label>
+                    <select class="form-control" id="id_state" formControlName="f_state" (change)="onStateSelected($event.target.value)">
+                        <option value=-1>--Select State--</option>
+                        <option *ngFor="let state of states" [value]=state.stateId>{{state.stateName}}</option>
+                    </select>
+                </div>
+                <div class="form-group row" formGroupName="f_city_pincode_group">
+
+                    <div class="col-sm-6 col-md-6">
+                        <label for="id_city">City:</label>
+                        <select class="form-control" id="id_city" formControlName="f_city">
+                            <option value=-1>--Select City--</option>
+                            <option *ngFor="let city of cities" [value]=city.cityId>{{city.cityName}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                        <label for="id_pincode">Pincode:</label>
+                        <input type="text" class="form-control" id="id_pincode" formControlName="f_pincode" placeholder="6-digit pincode">
+                    </div>
+
+                </div>
+                <div class="row mt-4 ml-1">
+                    <button (click)="onFormReset()" [hidden]="!allowUpdate" class="mr-2 col-sm-3 col-md-3 btn bg-amber text-white">
+                        <i class="fa fa-refresh"></i> Reset
+                    </button>
+                    <button type="submit" class="ml-3 col-sm-8 col-md-8 btn btn-success" [hidden]="!allowUpdate">
+                        <i class="fa fa-book"></i> Update Details
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

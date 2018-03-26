@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="card mb-3 col-md-5 bg-blue">
+        <div class="card-body py-3 navbar-brand">
+            <div class="row">
+                    <p class="h2 mx-auto"><strong> {{ donor.bloodGroup }}</strong></p>
+                </div>
+                <div class="row">
+                    <p class=""><i class="fa fa-user"></i><strong> {{ donor.donorName }}</strong></p>
+                </div>
+                <div class="row">
+                        <span><i class="fa fa-phone"></i> {{ donor.contact }}</span>
+                </div>
+                <div class="row">
+                    <div class="">
+                            <i class="fa fa-map-marker"></i> {{donor.pincode}}
+                    </div>
+                    <div class="col-md-4 mx-auto cursor-hand">
+                        <span class="badge badge-danger" (click)="onDonorRequest()">Request</span>
+                    </div>  
+                </div>
+     </div>
+    </div>
+
+</div>
